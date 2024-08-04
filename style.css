@@ -11,7 +11,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   padding: clamp(20px, 5vw, 50px) 20px 20px;
 }
-
 .wiki-logo {
   width: clamp(100px, 25vw, 250px);
   display: block;
@@ -31,12 +30,10 @@ form {
   max-width: 800px;
   margin: 0 auto 30px;
 }
-
 .search-container {
   display: flex;
   align-items: center;
 }
-
 input.search-input {
   flex: 1;
   padding: 15px;
@@ -46,31 +43,27 @@ input.search-input {
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
   margin-right: 10px;
 }
-
 select.language-select {
   padding: 15px;
   font-size: 18px;
   border: none;
   border-radius: 3px;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
-  background: #fff; /* Fond blanc */
+  background: #fff;
   margin-right: 20px;
 }
-
 select.language-select:hover {
-  background: #f1f1f1; /* Gris clair lors du survol */
+  background: #f1f1f1;
 }
-
 select.language-select option {
-  background: #fff; /* Fond blanc pour les options */
-  color: #333; /* Couleur du texte pour les options */
+  background: #fff;
+  color: #333;
 }
-
 .theme-toggle-button {
   padding: 15px;
   font-size: 18px;
   color: #ffffff;
-  background: #a09f9f; /* Même couleur que le bouton de recherche */
+  background: #a09f9f;
   border: none;
   border-radius: 3px;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
@@ -79,13 +72,10 @@ select.language-select option {
   display: inline-block;
   font-weight: 700;
 }
-
 .theme-toggle-button:hover {
   background-color: #b0b0b0;
   color: #585858;
-   /* Couleur de survol similaire au bouton de recherche */
 }
-
 .suggestions-list {
   position: absolute;
   max-height: 150px;
@@ -95,21 +85,19 @@ select.language-select option {
   border-radius: 3px;
   z-index: 1000;
 }
-
 .suggestion-item {
   padding: 10px;
   cursor: pointer;
 }
-
 .suggestion-item:hover {
   background: #f1f1f1;
 }
-
 .search-button {
   display: block;
-  width: calc(16.67% - 10px); /* La moitié de la largeur du bouton précédent */
+  width: 100%;
+  max-width: 300px;
   padding: 15px;
-  font-size: 20px;
+  font-size: 1.2rem;
   text-transform: uppercase;
   font-weight: 700;
   color: #fff;
@@ -118,14 +106,15 @@ select.language-select option {
   border-radius: 3px;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  margin: 20px auto 0; /* Espace au-dessus du bouton et centré */
+  margin: 20px auto 0;
   text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-
 .search-button:hover {
   background-color: #50575e;
 }
-
 .error-msg {
   text-align: center;
   color: #454545;
@@ -133,17 +122,14 @@ select.language-select option {
   font-size: 20px;
   font-weight: 700;
 }
-
 .results-display {
   max-width: 600px;
   margin: 70px auto;
 }
-
 .loader {
   display: none;
   justify-content: center;
 }
-
 .dot {
   width: 15px;
   height: 15px;
@@ -152,111 +138,129 @@ select.language-select option {
   margin: 0 3px;
   animation: load 0.3s infinite ease-out alternate;
 }
-
 .dot:nth-child(2) {
   animation-delay: 0.1s;
 }
-
 .dot:nth-child(3) {
   animation-delay: 0.2s;
 }
-
 @keyframes load {
   to {
     transform: translateY(10px);
   }
 }
-
 .result-item {
   margin-bottom: 20px;
 }
-
 .result-title {
   font-size: 22px;
 }
-
 .result-title a {
-  color: #312f2f; /* Couleur identique au titre h1 */
+  color: #312f2f;
   text-decoration: none;
 }
-
 .result-title a:hover,
 .result-title a:focus {
-  color: #7d7d7d; /* Gris clair comme le bouton de recherche lors du survol */
+  color: #7d7d7d;
 }
-
 .result-snippet {
   font-size: 15px;
   color: #444;
 }
-
 .result-link {
   color: #006621;
   text-decoration: none;
   display: block;
   overflow-wrap: break-word;
 }
-
 body.dark-mode {
-  background: #121212; /* Fond sombre pour la page */
-  color: #e0e0e0; /* Texte clair pour la lisibilité */
+  background: #121212;
+  color: #e0e0e0;
 }
-
 body.dark-mode h1 {
-  color: #e0e0e0; /* Couleur claire pour le titre h1 */
+  color: #e0e0e0;
 }
-
 body.dark-mode .error-msg {
-  color: #e0e0e0; /* Texte clair pour le message d'erreur */
+  color: #e0e0e0;
   border-radius: 3px;
   padding: 15px;
 }
-
 body.dark-mode .search-input,
 body.dark-mode .language-select,
 body.dark-mode .search-button,
 body.dark-mode .theme-toggle-button {
-  background: #333; /* Fond sombre pour les champs de texte et boutons */
-  color: #e0e0e0; /* Texte clair pour les champs de texte et boutons */
-  border: 1px solid #444; /* Bordure pour les champs de texte et boutons */
+  background: #333;
+  color: #e0e0e0;
+  border: 1px solid #444;
 }
-
 body.dark-mode .search-input::placeholder,
 body.dark-mode .language-select option {
-  color: #e0e0e0; /* Texte clair pour les éléments de texte placeholder et options */
+  color: #e0e0e0;
 }
-
 body.dark-mode .search-button:hover,
 body.dark-mode .theme-toggle-button:hover {
-  background-color: #50575e; /* Couleur de survol similaire pour les boutons */
+  background-color: #50575e;
 }
-
 body.dark-mode .result-title a {
-  color: #e0e0e0; /* Couleur claire pour les liens dans le mode sombre */
+  color: #e0e0e0;
 }
-
 body.dark-mode .result-title a:hover,
 body.dark-mode .result-title a:focus {
-  color: #6b6969; /* Couleur de survol pour les liens */
+  color: #6b6969;
 }
-
 body.dark-mode .suggestion-item{
-  color: #444; /* Fond sombre pour les suggestions en mode sombre */
+  color: #444;
 }
-
 body.dark-mode .suggestion-item:hover {
   background: #444;
-  color: #e0e0e0; 
+  color: #e0e0e0;
 }
-
 body.dark-mode .language-select{
-  color: #ffffff; /* Fond sombre pour les suggestions en mode sombre */
+  color: #ffffff;
 }
 body.dark-mode .language-select:hover {
   background: #a4a4a4;
-  color: #000000; 
+  color: #000000;
 }
-
 body.dark-mode .theme-toggle-button {
-  background: #585858; /* Fond sombre pour le bouton de thème en mode sombre */
+  background: #585858;
+}
+@media (max-width: 768px) {
+  .search-button {
+    font-size: 1rem;
+    padding: 12px;
+    max-width: 250px;
+  }
+}
+@media (max-width: 600px) {
+  .search-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .search-input {
+    width: 100%;
+    margin-right: 0;
+  }
+  .language-select {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  .theme-toggle-button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .search-button {
+    font-size: 0.9rem;
+    padding: 10px;
+    max-width: 200px;
+  }
+}
+@media (max-width: 400px) {
+  .search-button {
+    font-size: 0.8rem;
+    padding: 8px;
+    max-width: 150px;
+  }
 }

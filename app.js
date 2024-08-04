@@ -9,9 +9,9 @@ const errorMsg = document.querySelector(".error-msg");
 const resultsDisplay = document.querySelector(".results-display");
 const loader = document.querySelector(".loader");
 const suggestionsList = document.querySelector(".suggestions-list");
-const searchHistoryContainer = document.querySelector(".search-history");
 
-const history = JSON.parse(localStorage.getItem('searchHistory')) || [];
+// Ajout d'un événement sur le bouton de recherche
+document.querySelector(".search-button").addEventListener("click", handleSubmit);
 
 form.addEventListener("submit", handleSubmit);
 
@@ -42,18 +42,12 @@ function handleSubmit(e) {
         return;
     }
 
-    if (!history.includes(searchTerm)) {
-        history.push(searchTerm);
-        localStorage.setItem('searchHistory', JSON.stringify(history));
-    }
-
     errorMsg.textContent = "";
     loader.style.display = "flex";
     resultsDisplay.textContent = "";
     suggestionsList.innerHTML = ""; // Effacer les suggestions
     page = 0;  // Réinitialiser le compteur de pages pour les nouvelles recherches
     wikiApiCall(searchTerm);
-    displayHistory();
 }
 
 async function wikiApiCall(searchInput) {
@@ -104,17 +98,3 @@ function updateSuggestions(suggestions) {
         });
     });
 }
-
-function displayHistory() {
-    searchHistoryContainer.innerHTML = history.map(term => 
-        `<div class="history-item" onclick="searchFromHistory('${term}')">${term}</div>`
-    ).join('');
-}
-
-function searchFromHistory(term) {
-    input.value = term;
-    handleSubmit(new Event('submit'));
-}
-
-// Appeler displayHistory pour afficher l'historique au chargement
-displayHistory();

@@ -5,8 +5,20 @@ const input = document.querySelector("input");
 const errorMsg = document.querySelector(".error-msg");
 const resultsDisplay = document.querySelector(".results-display");
 const loader = document.querySelector(".loader");
+const suggestionsList = document.querySelector(".suggestions-list");
 
 form.addEventListener("submit", handleSubmit);
+
+input.addEventListener("input", async () => {
+    const searchTerm = input.value;
+    if (searchTerm.length > 2) {
+      const response = await fetch(`https://en.wikipedia.org/w/api.php?action=opensearch&search=${searchTerm}&format=json&origin=*`);
+      const data = await response.json();
+      updateSuggestions(data[1]);
+    } else {
+      suggestionsList.innerHTML = "";
+    }
+  });
 
 function handleSubmit(e) {
   e.preventDefault();
@@ -62,3 +74,16 @@ function createCards(data) {
   loader.style.display = "none";
 }
 
+function updateSuggestions(suggestions) {
+    suggestionsList.innerHTML = suggestions.map(suggestion => 
+      `<div class="suggestion-item">${suggestion}</div>`
+    ).join('');
+    
+    document.querySelectorAll('.suggestion-item').forEach(item => {
+      item.addEventListener('click', () => {
+        input.value = item.textContent;
+        suggestionsList.innerHTML = "";
+        handleSubmit(new Event('submit'));  // Trigger the form submission
+      });
+    });
+  }

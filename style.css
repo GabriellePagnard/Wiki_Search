@@ -5,17 +5,20 @@
   margin: 0;
   padding: 0;
 }
+
 body {
   min-height: 100vh;
   background: #f1f1f1;
   font-family: Arial, Helvetica, sans-serif;
   padding: clamp(20px, 5vw, 50px) 20px 20px;
 }
+
 .wiki-logo {
   width: clamp(100px, 25vw, 250px);
   display: block;
   margin: 50px auto 0;
 }
+
 h1 {
   font-size: clamp(20px, 5vw, 50px);
   color: #333;
@@ -23,17 +26,21 @@ h1 {
   margin: 20px 0 10px;
   font-weight: 100;
 }
+
 h1 span {
   font-weight: 800;
 }
+
 form {
   max-width: 800px;
   margin: 0 auto 30px;
 }
+
 .search-container {
   display: flex;
   align-items: center;
 }
+
 input.search-input {
   flex: 1;
   padding: 15px;
@@ -43,6 +50,7 @@ input.search-input {
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
   margin-right: 10px;
 }
+
 select.language-select {
   padding: 15px;
   font-size: 18px;
@@ -52,13 +60,16 @@ select.language-select {
   background: #fff;
   margin-right: 20px;
 }
+
 select.language-select:hover {
   background: #f1f1f1;
 }
+
 select.language-select option {
   background: #fff;
   color: #333;
 }
+
 .theme-toggle-button {
   padding: 15px;
   font-size: 18px;
@@ -72,10 +83,12 @@ select.language-select option {
   display: inline-block;
   font-weight: 700;
 }
+
 .theme-toggle-button:hover {
   background-color: #b0b0b0;
   color: #585858;
 }
+
 .suggestions-list {
   position: absolute;
   max-height: 150px;
@@ -85,13 +98,16 @@ select.language-select option {
   border-radius: 3px;
   z-index: 1000;
 }
+
 .suggestion-item {
   padding: 10px;
   cursor: pointer;
 }
+
 .suggestion-item:hover {
   background: #f1f1f1;
 }
+
 .search-button {
   display: block;
   width: 100%;
@@ -112,9 +128,11 @@ select.language-select option {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
 .search-button:hover {
   background-color: #50575e;
 }
+
 .error-msg {
   text-align: center;
   color: #454545;
@@ -122,14 +140,17 @@ select.language-select option {
   font-size: 20px;
   font-weight: 700;
 }
+
 .results-display {
   max-width: 600px;
   margin: 70px auto;
 }
+
 .loader {
   display: none;
   justify-content: center;
 }
+
 .dot {
   width: 15px;
   height: 15px;
@@ -138,53 +159,66 @@ select.language-select option {
   margin: 0 3px;
   animation: load 0.3s infinite ease-out alternate;
 }
+
 .dot:nth-child(2) {
   animation-delay: 0.1s;
 }
+
 .dot:nth-child(3) {
   animation-delay: 0.2s;
 }
+
 @keyframes load {
   to {
     transform: translateY(10px);
   }
 }
+
 .result-item {
   margin-bottom: 20px;
 }
+
 .result-title {
   font-size: 22px;
 }
+
 .result-title a {
   color: #312f2f;
   text-decoration: none;
 }
+
 .result-title a:hover,
 .result-title a:focus {
   color: #7d7d7d;
 }
+
 .result-snippet {
   font-size: 15px;
   color: #444;
 }
+
 .result-link {
   color: #006621;
   text-decoration: none;
   display: block;
   overflow-wrap: break-word;
 }
+
 body.dark-mode {
   background: #121212;
   color: #e0e0e0;
 }
+
 body.dark-mode h1 {
   color: #e0e0e0;
 }
+
 body.dark-mode .error-msg {
   color: #e0e0e0;
   border-radius: 3px;
   padding: 15px;
 }
+
 body.dark-mode .search-input,
 body.dark-mode .language-select,
 body.dark-mode .search-button,
@@ -193,38 +227,48 @@ body.dark-mode .theme-toggle-button {
   color: #e0e0e0;
   border: 1px solid #444;
 }
+
 body.dark-mode .search-input::placeholder,
 body.dark-mode .language-select option {
   color: #e0e0e0;
 }
+
 body.dark-mode .search-button:hover,
 body.dark-mode .theme-toggle-button:hover {
   background-color: #50575e;
 }
+
 body.dark-mode .result-title a {
   color: #e0e0e0;
 }
+
 body.dark-mode .result-title a:hover,
 body.dark-mode .result-title a:focus {
   color: #6b6969;
 }
-body.dark-mode .suggestion-item{
+
+body.dark-mode .suggestion-item {
   color: #444;
 }
+
 body.dark-mode .suggestion-item:hover {
   background: #444;
   color: #e0e0e0;
 }
-body.dark-mode .language-select{
+
+body.dark-mode .language-select {
   color: #ffffff;
 }
+
 body.dark-mode .language-select:hover {
   background: #a4a4a4;
   color: #000000;
 }
+
 body.dark-mode .theme-toggle-button {
   background: #585858;
 }
+
 @media (max-width: 768px) {
   .search-button {
     font-size: 1rem;
@@ -232,6 +276,7 @@ body.dark-mode .theme-toggle-button {
     max-width: 250px;
   }
 }
+
 @media (max-width: 600px) {
   .search-container {
     flex-direction: column;
@@ -257,6 +302,7 @@ body.dark-mode .theme-toggle-button {
     max-width: 200px;
   }
 }
+
 @media (max-width: 400px) {
   .search-button {
     font-size: 0.8rem;

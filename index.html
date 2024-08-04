@@ -9,27 +9,43 @@
 </head>
 
 <body>
+  <!-- Logo de Wikipedia -->
   <img src="ressources/wiki-logo.png" alt="wikipedia logo" class="wiki-logo">
+
+  <!-- Titre de la page -->
   <h1>Recherche <span>Wikipedia</span></h1>
 
+  <!-- Formulaire de recherche -->
   <form>
     <div class="search-container">
+      <!-- Champ de saisie pour la recherche -->
       <input type="text" class="search-input" placeholder="Rechercher...">
+      
+      <!-- Sélecteur de langue -->
       <select class="language-select">
         <option value="en">English</option>
         <option value="fr">Français</option>
         <option value="es">Español</option>
         <!-- Ajouter d'autres langues ici -->
       </select>
+      
+      <!-- Bouton pour activer/désactiver le mode sombre -->
       <button class="theme-toggle-button">Mode Sombre</button>
     </div>
+    <!-- Liste des suggestions de recherche -->
     <div class="suggestions-list"></div>
   </form>
 
+  <!-- Bouton de recherche -->
   <button class="search-button">Rechercher</button>
 
+  <!-- Message d'erreur -->
   <p class="error-msg"></p>
+  
+  <!-- Zone d'affichage des résultats de recherche -->
   <div class="results-display"></div>
+  
+  <!-- Loader pour indiquer le chargement -->
   <div class="loader">
     <span class="dot"></span>
     <span class="dot"></span>

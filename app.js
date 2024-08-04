@@ -9,6 +9,7 @@ const errorMsg = document.querySelector(".error-msg");
 const resultsDisplay = document.querySelector(".results-display");
 const loader = document.querySelector(".loader");
 const suggestionsList = document.querySelector(".suggestions-list");
+const themeToggleButton = document.querySelector(".theme-toggle-button");
 
 // Ajout d'un événement sur le bouton de recherche
 document.querySelector(".search-button").addEventListener("click", handleSubmit);
@@ -98,3 +99,35 @@ function updateSuggestions(suggestions) {
         });
     });
 }
+
+// Fonction pour activer le mode sombre
+function enableDarkMode() {
+    document.body.classList.add("dark-mode");
+    localStorage.setItem("theme", "dark");
+  }
+  
+  // Fonction pour désactiver le mode sombre
+  function disableDarkMode() {
+    document.body.classList.remove("dark-mode");
+    localStorage.setItem("theme", "light");
+  }
+  
+  // Fonction pour basculer entre les modes
+  function toggleDarkMode() {
+    if (document.body.classList.contains("dark-mode")) {
+      disableDarkMode();
+    } else {
+      enableDarkMode();
+    }
+  }
+  
+  // Événement sur le bouton de bascule du thème
+  themeToggleButton.addEventListener("click", toggleDarkMode);
+  
+  // Charger le thème préféré au démarrage
+  window.addEventListener("load", () => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      enableDarkMode();
+    }
+  });

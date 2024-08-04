@@ -54,6 +54,7 @@ select.language-select {
   border-radius: 3px;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
   background: #fff; /* Fond blanc */
+  margin-right: 20px;
 }
 
 select.language-select:hover {
@@ -63,6 +64,26 @@ select.language-select:hover {
 select.language-select option {
   background: #fff; /* Fond blanc pour les options */
   color: #333; /* Couleur du texte pour les options */
+}
+
+.theme-toggle-button {
+  padding: 15px;
+  font-size: 18px;
+  color: #ffffff;
+  background: #a09f9f; /* Même couleur que le bouton de recherche */
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+  font-weight: 700;
+}
+
+.theme-toggle-button:hover {
+  background-color: #b0b0b0;
+  color: #585858;
+   /* Couleur de survol similaire au bouton de recherche */
 }
 
 .suggestions-list {
@@ -108,6 +129,9 @@ select.language-select option {
 .error-msg {
   text-align: center;
   color: #454545;
+  margin-top: 30px;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .results-display {
@@ -171,4 +195,68 @@ select.language-select option {
   text-decoration: none;
   display: block;
   overflow-wrap: break-word;
+}
+
+body.dark-mode {
+  background: #121212; /* Fond sombre pour la page */
+  color: #e0e0e0; /* Texte clair pour la lisibilité */
+}
+
+body.dark-mode h1 {
+  color: #e0e0e0; /* Couleur claire pour le titre h1 */
+}
+
+body.dark-mode .error-msg {
+  color: #e0e0e0; /* Texte clair pour le message d'erreur */
+  border-radius: 3px;
+  padding: 15px;
+}
+
+body.dark-mode .search-input,
+body.dark-mode .language-select,
+body.dark-mode .search-button,
+body.dark-mode .theme-toggle-button {
+  background: #333; /* Fond sombre pour les champs de texte et boutons */
+  color: #e0e0e0; /* Texte clair pour les champs de texte et boutons */
+  border: 1px solid #444; /* Bordure pour les champs de texte et boutons */
+}
+
+body.dark-mode .search-input::placeholder,
+body.dark-mode .language-select option {
+  color: #e0e0e0; /* Texte clair pour les éléments de texte placeholder et options */
+}
+
+body.dark-mode .search-button:hover,
+body.dark-mode .theme-toggle-button:hover {
+  background-color: #50575e; /* Couleur de survol similaire pour les boutons */
+}
+
+body.dark-mode .result-title a {
+  color: #e0e0e0; /* Couleur claire pour les liens dans le mode sombre */
+}
+
+body.dark-mode .result-title a:hover,
+body.dark-mode .result-title a:focus {
+  color: #6b6969; /* Couleur de survol pour les liens */
+}
+
+body.dark-mode .suggestion-item{
+  color: #444; /* Fond sombre pour les suggestions en mode sombre */
+}
+
+body.dark-mode .suggestion-item:hover {
+  background: #444;
+  color: #e0e0e0; 
+}
+
+body.dark-mode .language-select{
+  color: #ffffff; /* Fond sombre pour les suggestions en mode sombre */
+}
+body.dark-mode .language-select:hover {
+  background: #a4a4a4;
+  color: #000000; 
+}
+
+body.dark-mode .theme-toggle-button {
+  background: #585858; /* Fond sombre pour le bouton de thème en mode sombre */
 }

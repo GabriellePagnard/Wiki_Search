@@ -1,4 +1,32 @@
-// Page courante pour la pagination des résultats
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: app.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: app.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// Page courante pour la pagination des résultats
 let page = 0;
 // Indicateur de chargement pour éviter les appels multiples
 let loading = false;
@@ -54,7 +82,7 @@ form.addEventListener("submit", handleSubmit);
 input.addEventListener("input", async () => {
     const searchTerm = input.value;
     if (searchTerm.length > 2) {
-        const response = await fetch(`https://en.wikipedia.org/w/api.php?action=opensearch&search=${searchTerm}&format=json&origin=*`);
+        const response = await fetch(`https://en.wikipedia.org/w/api.php?action=opensearch&amp;search=${searchTerm}&amp;format=json&amp;origin=*`);
         const data = await response.json();
         updateSuggestions(data[1]);
     } else {
@@ -67,7 +95,7 @@ input.addEventListener("input", async () => {
  * Effectue une requête API pour récupérer les résultats si l'utilisateur atteint le bas de la page.
  */
 window.addEventListener('scroll', () => {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 10 && !loading) {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 10 &amp;&amp; !loading) {
         loading = true;
         wikiApiCall(input.value).finally(() => loading = false);
     }
@@ -80,7 +108,7 @@ window.addEventListener('scroll', () => {
 async function wikiApiCall(searchInput) {
     page++;
     try {
-        const response = await fetch(`https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&origin=*&srlimit=20&srsearch=${searchInput}&sroffset=${page * 20}`);
+        const response = await fetch(`https://en.wikipedia.org/w/api.php?action=query&amp;list=search&amp;format=json&amp;origin=*&amp;srlimit=20&amp;srsearch=${searchInput}&amp;sroffset=${page * 20}`);
         const data = await response.json();
         createCards(data.query.search);
     } catch (error) {
@@ -91,7 +119,7 @@ async function wikiApiCall(searchInput) {
 
 /**
  * Création des cartes pour afficher les résultats de recherche.
- * @param {Array<Object>} data Les résultats de recherche
+ * @param {Array&lt;Object>} data Les résultats de recherche
  */
 function createCards(data) {
     if (!data.length) {
@@ -104,12 +132,12 @@ function createCards(data) {
         const card = document.createElement("div");
         card.className = "result-item";
         card.innerHTML = `
-      <h3 class="result-title">
-        <a href=${url} target="_blank">${el.title}</a>
-      </h3>
-      <a href=${url} class="result-link" target="_blank">${url}</a>
-      <span class="result-snippet">${el.snippet}</span>
-      <br>
+      &lt;h3 class="result-title">
+        &lt;a href=${url} target="_blank">${el.title}&lt;/a>
+      &lt;/h3>
+      &lt;a href=${url} class="result-link" target="_blank">${url}&lt;/a>
+      &lt;span class="result-snippet">${el.snippet}&lt;/span>
+      &lt;br>
     `;
         resultsDisplay.appendChild(card);
     });
@@ -118,11 +146,11 @@ function createCards(data) {
 
 /**
  * Mise à jour des suggestions de recherche affichées.
- * @param {Array<string>} suggestions Les suggestions de recherche
+ * @param {Array&lt;string>} suggestions Les suggestions de recherche
  */
 function updateSuggestions(suggestions) {
     suggestionsList.innerHTML = suggestions.map(suggestion =>
-        `<div class="suggestion-item">${suggestion}</div>`
+        `&lt;div class="suggestion-item">${suggestion}&lt;/div>`
     ).join('');
 
     document.querySelectorAll('.suggestion-item').forEach(item => {
@@ -173,3 +201,26 @@ window.addEventListener("load", () => {
       enableDarkMode();
     }
 });
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#createCards">createCards</a></li><li><a href="global.html#disableDarkMode">disableDarkMode</a></li><li><a href="global.html#enableDarkMode">enableDarkMode</a></li><li><a href="global.html#form">form</a></li><li><a href="global.html#handleSubmit">handleSubmit</a></li><li><a href="global.html#toggleDarkMode">toggleDarkMode</a></li><li><a href="global.html#updateSuggestions">updateSuggestions</a></li><li><a href="global.html#wikiApiCall">wikiApiCall</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Mon Aug 05 2024 18:53:12 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

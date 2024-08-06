@@ -29,7 +29,7 @@ Voici à quoi ressemble l'application :
 
 ![dark mode view](ressources/dark_mode_view.jpg)
 
-[Démo vidéo du projet 🎥](https://www.youtube.com/watch?v=wGe6SeDHBqM)
+[Démo vidéo du projet 🎥](https://www.youtube.com/watch?v=b6dCankd0wE)
 
 <br>
 <br>
